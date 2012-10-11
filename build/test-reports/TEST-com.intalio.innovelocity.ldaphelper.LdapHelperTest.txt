@@ -1,0 +1,11 @@
+Testsuite: com.intalio.innovelocity.ldaphelper.LdapHelperTest
+Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.104 sec
+------------- Standard Output ---------------
+uniquemember - cn=msmith,ou=People,dc=examples,dc=com
+uniquemember - cn=ewilliams,ou=People,dc=examples,dc=com
+uniquemember - cn=jlee,ou=People,dc=examples,dc=com
+------------- ---------------- ---------------
+
+Testcase: testquery1 took 0 sec
+Testcase: testquery2 took 0 sec
+Testcase: testupdate took 0.101 sec

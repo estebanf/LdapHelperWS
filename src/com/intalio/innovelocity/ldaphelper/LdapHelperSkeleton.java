@@ -47,7 +47,7 @@ public class LdapHelperSkeleton{
         //   prop_providerUrl = "ldap://localhost:10389/";
         //   prop_securityPrincipal = "uid=admin,ou=system";
         //   prop_securityCredentials = "secret";
-        //   prop_searchBase = "ou=People,dc=examples,dc=com";
+        //   prop_searchBase = "ou=Roles,dc=examples,dc=com";
         // }
     }
     private void connect() throws NamingException{
@@ -185,16 +185,20 @@ public class LdapHelperSkeleton{
         OperationAction action = update.getOperation().getAction();
         Item item = update.getOperation().getItem();
         ModificationItem[] mods = new ModificationItem[1];
+        BasicAttribute mod_attr = new BasicAttribute(item.getKey());
+        if(item.getValue() != null){
+            mod_attr = new BasicAttribute(item.getKey(),item.getValue()[0]);
+        }
         if(action == OperationAction.ADD){
-          mods[0] = new ModificationItem(DirContext.ADD_ATTRIBUTE,new BasicAttribute(item.getKey(),item.getValue()[0]));
+          mods[0] = new ModificationItem(DirContext.ADD_ATTRIBUTE,mod_attr);
         }
         else{
             if(action == OperationAction.REMOVE){
-                mods[0] = new ModificationItem(DirContext.REMOVE_ATTRIBUTE,new BasicAttribute(item.getKey()));
+                mods[0] = new ModificationItem(DirContext.REMOVE_ATTRIBUTE,mod_attr);
             }
             else{
                 if(action == OperationAction.REPLACE){
-                    mods[0] = new ModificationItem(DirContext.REPLACE_ATTRIBUTE,new BasicAttribute(item.getKey(),item.getValue()[0]));
+                    mods[0] = new ModificationItem(DirContext.REPLACE_ATTRIBUTE,mod_attr);
                 }
             }
         }
