@@ -1,16 +1,10 @@
 
-/**
-* LdapHelperSkeleton.java
-*
-* This file was auto-generated from WSDL
-* by the Apache Axis2 version: 1.5.6  Built on : Aug 30, 2011 (10:00:16 CEST)
-*/
 package com.intalio.innovelocity.ldaphelper;
+
 import javax.naming.Context;
 import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
 import javax.naming.directory.*;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -18,10 +12,6 @@ import java.util.*;
 import java.io.UnsupportedEncodingException;
 import com.intalio.innovelocity.*;
 
-
-/**
-*  LdapHelperSkeleton java skeleton for the axisService
-*/
 public class LdapHelperSkeleton{
     private InitialDirContext ctx;
     private String prop_providerUrl;
@@ -43,12 +33,12 @@ public class LdapHelperSkeleton{
               prop_searchBase = props.getProperty("search_base");
             }
         }
-        // else{
-        //   prop_providerUrl = "ldap://localhost:10389/";
-        //   prop_securityPrincipal = "uid=admin,ou=system";
-        //   prop_securityCredentials = "secret";
-        //   prop_searchBase = "ou=Roles,dc=examples,dc=com";
-        // }
+        else{
+          prop_providerUrl = "ldap://bpms.local:10389/";
+          prop_securityPrincipal = "uid=admin,ou=system";
+          prop_securityCredentials = "secret";
+          prop_searchBase = "ou=Roles,dc=examples,dc=com";
+        }
     }
     private void connect() throws NamingException{
         
@@ -227,3 +217,5 @@ public class LdapHelperSkeleton{
         return response;
     }
 }
+
+    

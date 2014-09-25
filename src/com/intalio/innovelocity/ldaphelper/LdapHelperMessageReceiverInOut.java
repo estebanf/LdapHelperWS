@@ -3,7 +3,7 @@
  * LdapHelperMessageReceiverInOut.java
  *
  * This file was auto-generated from WSDL
- * by the Apache Axis2 version: 1.5.6  Built on : Aug 30, 2011 (10:00:16 CEST)
+ * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST)
  */
         package com.intalio.innovelocity.ldaphelper;
 
@@ -34,6 +34,7 @@
         java.lang.String methodName;
         if((op.getName() != null) && ((methodName = org.apache.axis2.util.JavaUtils.xmlNameToJavaIdentifier(op.getName().getLocalPart())) != null)){
 
+
         
 
             if("update".equals(methodName)){
@@ -51,7 +52,8 @@
                                                          skel.update(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), updateResponse1, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), updateResponse1, false, new javax.xml.namespace.QName("http://innovelocity.intalio.com/LdapHelper/",
+                                                    "update"));
                                     } else 
 
             if("query".equals(methodName)){
@@ -69,7 +71,8 @@
                                                          skel.query(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), queryResponse3, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), queryResponse3, false, new javax.xml.namespace.QName("http://innovelocity.intalio.com/LdapHelper/",
+                                                    "query"));
                                     
             } else {
               throw new java.lang.RuntimeException("method not found");
@@ -141,7 +144,7 @@
 
             }
         
-                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, com.intalio.innovelocity.ldaphelper.UpdateResponse param, boolean optimizeContent)
+                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, com.intalio.innovelocity.ldaphelper.UpdateResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                         throws org.apache.axis2.AxisFault{
                       try{
                           org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
@@ -160,7 +163,7 @@
                                 return wrappedElement;
                          }
                     
-                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, com.intalio.innovelocity.ldaphelper.QueryResponse param, boolean optimizeContent)
+                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, com.intalio.innovelocity.ldaphelper.QueryResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                         throws org.apache.axis2.AxisFault{
                       try{
                           org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();

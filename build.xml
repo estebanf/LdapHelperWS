@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project basedir="." default="jar.server">
+<project basedir="." default="jar.client">
     <!--Auto generated ant build file-->
     <property environment="env"/>
     <property name="axis2.home" value="${env.AXIS2_HOME}"/>
@@ -24,7 +24,6 @@
         <mkdir dir="${build}"/>
         <mkdir dir="${classes}"/>
         <mkdir dir="${lib}"/>
-        <mkdir dir="${test}"/>
     </target>
     <target depends="init" name="pre.compile.test">
         <!--Test the classpath for the availability of necesary classes-->
@@ -67,7 +66,7 @@
             <fileset excludes="**/Test.class" dir="${classes}"/>
         </jar>
     </target>
-    <target if="jars.ok" name="jar.client" depends="compile.test">
+    <target if="jars.ok" name="jar.client" depends="compile.src">
         <jar destfile="${lib}/${name}-test-client.jar">
             <fileset dir="${classes}">
                 <exclude name="**/META-INF/*.*"/>
